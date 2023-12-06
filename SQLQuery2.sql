@@ -1,0 +1,2 @@
+ALTER TABLE userTb
+ADD userImage VARBINARY(MAX);
