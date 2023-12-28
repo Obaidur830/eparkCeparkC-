@@ -50,7 +50,7 @@
             this.sampleViewPanel.Location = new System.Drawing.Point(0, 0);
             this.sampleViewPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sampleViewPanel.Name = "sampleViewPanel";
-            this.sampleViewPanel.Size = new System.Drawing.Size(686, 97);
+            this.sampleViewPanel.Size = new System.Drawing.Size(861, 97);
             this.sampleViewPanel.TabIndex = 0;
             // 
             // btnAdd
@@ -66,7 +66,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Image = global::epark.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(17, 46);
+            this.btnAdd.Location = new System.Drawing.Point(77, 46);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 34);
@@ -76,9 +76,8 @@
             // 
             // txtBoxSearch
             // 
-            this.txtBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBoxSearch.AutoRoundedCorners = true;
-            this.txtBoxSearch.BorderRadius = 13;
+            this.txtBoxSearch.BorderRadius = 16;
             this.txtBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBoxSearch.DefaultText = "";
             this.txtBoxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -89,21 +88,20 @@
             this.txtBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBoxSearch.IconLeft = global::epark.Properties.Resources.search;
-            this.txtBoxSearch.Location = new System.Drawing.Point(424, 45);
+            this.txtBoxSearch.Location = new System.Drawing.Point(594, 46);
             this.txtBoxSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxSearch.Name = "txtBoxSearch";
             this.txtBoxSearch.PasswordChar = '\0';
             this.txtBoxSearch.PlaceholderText = "Search Here";
             this.txtBoxSearch.SelectedText = "";
-            this.txtBoxSearch.Size = new System.Drawing.Size(147, 28);
+            this.txtBoxSearch.Size = new System.Drawing.Size(196, 34);
             this.txtBoxSearch.TabIndex = 2;
             this.txtBoxSearch.TextOffset = new System.Drawing.Point(5, 0);
             this.txtBoxSearch.TextChanged += new System.EventHandler(this.txtBoxSearch_TextChanged);
             // 
             // lbSearch
             // 
-            this.lbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSearch.Location = new System.Drawing.Point(424, 20);
+            this.lbSearch.Location = new System.Drawing.Point(593, 20);
             this.lbSearch.Name = "lbSearch";
             this.lbSearch.Size = new System.Drawing.Size(47, 17);
             this.lbSearch.TabIndex = 1;
@@ -113,7 +111,7 @@
             // 
             this.lbSampleHeader.AutoSize = true;
             this.lbSampleHeader.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSampleHeader.Location = new System.Drawing.Point(12, 12);
+            this.lbSampleHeader.Location = new System.Drawing.Point(81, 12);
             this.lbSampleHeader.Name = "lbSampleHeader";
             this.lbSampleHeader.Size = new System.Drawing.Size(140, 25);
             this.lbSampleHeader.TabIndex = 0;
@@ -123,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 370);
+            this.ClientSize = new System.Drawing.Size(861, 421);
             this.Controls.Add(this.sampleViewPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SampleView";

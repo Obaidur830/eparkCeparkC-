@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace epark
 {
-    public partial class SampleAdd: Sample
+    public partial class SampleAdd : Sample
     {
         public SampleAdd()
         {
             InitializeComponent();
-            guna2Panel1.Show();
+            guna2MessageDialog1.Parent = mainForm.Instance;
+            //guna2Panel1.Show();
         }
 
         public virtual void btnClose_Click(object sender, EventArgs e)

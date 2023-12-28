@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Messaging;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -11,14 +12,16 @@ namespace epark
 {
     internal class MainClass
     {
-        public static readonly string con_string = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\Documents\\eparkDb.mdf;Integrated Security=True;Connect Timeout=30;";
+        //public static readonly string con_string = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\Documents\\eparkDb.mdf;Integrated Security=True;Connect Timeout=30;";
 
+        public static readonly string con_string = "Data Source = (Local)\\sqlexpress01;Initial Catalog = eparkDb; Integrated Security = True;";
+        
         public static SqlConnection sqlCon = new SqlConnection(con_string);
 
         public static bool isValidUser(string userName, string userPass)
         {
             bool isValid = false;
-            string qry = @"Select * from userTb where userName= '" + userName + "' and userPass = '" + userPass + "' ";
+            string qry = @"Select * from users where uUserName= '" + userName + "' and uPass = '" + userPass + "' ";
             SqlCommand cmd = new SqlCommand(qry, sqlCon);
             DataTable dt = new DataTable();
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
@@ -26,10 +29,10 @@ namespace epark
             if (dt.Rows.Count > 0)
             {
                 isValid = true;
-                USER = dt.Rows[0]["userName"].ToString();
-                if (dt.Rows[0]["userImage"] != null)
+                USER = dt.Rows[0]["uUserName"].ToString();
+                if (dt.Rows[0]["uImage"] != DBNull.Value)
                 {
-                    Byte[] imageArray = (byte[])dt.Rows[0]["userImage"];
+                    Byte[] imageArray = (byte[])dt.Rows[0]["uImage"];
                     byte[] imageByteArray = imageArray;
                     IMG = Image.FromStream(new MemoryStream(imageByteArray));
 
@@ -170,6 +173,23 @@ namespace epark
                     {
                         Guna.UI2.WinForms.Guna2TextBox t = (Guna.UI2.WinForms.Guna2TextBox)c;
                         if(t.Text.Trim() == "")
+                        {
+                            t.BorderColor = Color.Red;
+                            t.FocusedState.BorderColor = Color.Red;
+                            t.HoverState.BorderColor = Color.Red;
+                            count++;
+                        }
+                        else
+                        {
+                            t.BorderColor = Color.FromArgb(213, 218, 223);
+                            t.FocusedState.BorderColor = Color.FromArgb(95, 61, 204);
+                            t.HoverState.BorderColor = Color.FromArgb(95, 61, 204);
+                        }
+                    }
+                    if (c is Guna.UI2.WinForms.Guna2ComboBox)
+                    {
+                        Guna.UI2.WinForms.Guna2ComboBox t = (Guna.UI2.WinForms.Guna2ComboBox)c;
+                        if (t.SelectedIndex == -1)
                         {
                             t.BorderColor = Color.Red;
                             t.FocusedState.BorderColor = Color.Red;

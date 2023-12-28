@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 
 namespace epark
@@ -8,13 +9,14 @@ namespace epark
         public SampleView()
         {
             InitializeComponent();
+            guna2MessageDialog1.Parent = mainForm.Instance;
         }
 
 
 
         public virtual void btnAdd_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -27,6 +29,6 @@ namespace epark
         {
 
         }
-       
+
     }
 }

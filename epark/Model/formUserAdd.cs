@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace epark.Model
 {
@@ -17,11 +13,16 @@ namespace epark.Model
         public formUserAdd()
         {
             InitializeComponent();
+            guna2MessageDialog1.Parent = this;
+
         }
 
         private void formUserAdd_Load(object sender, EventArgs e)
         {
-
+            if (id > 0)
+            {
+                LoadImage();
+            }
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
@@ -29,7 +30,7 @@ namespace epark.Model
 
         }
 
-        int id = 0;
+        public int id = 0;
         public override void btmSave_Click(object sender, EventArgs e)
         {
             if (MainClass.validation(this) == false)
@@ -66,7 +67,7 @@ namespace epark.Model
                 ht.Add("@pass", txtPass.Text);
                 ht.Add("@phone", txtPhone.Text);
                 ht.Add("@image", imageByteArray);
-                if(MainClass.SQ1(qry, ht)>0)
+                if (MainClass.SQ1(qry, ht) > 0)
                 {
                     guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
                     guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
@@ -86,14 +87,35 @@ namespace epark.Model
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Images(.jpg, .png) | *.png, *.jpg ";
-            if(ofd.ShowDialog()==DialogResult.OK)
+            ofd.Filter = "Images(.jpg, .png) | *.png; *.jpg ";
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 filePath = ofd.FileName;
                 uPicBox.Image = new Bitmap(filePath);
             }
 
 
+        }
+        private void LoadImage()
+        {
+            string qry = @"Select uImage from users where userID = " + id + "";
+            SqlCommand cmd = new SqlCommand(qry, MainClass.sqlCon);
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                if (dt.Rows[0]["uImage"] != DBNull.Value)
+                {
+                    Byte[] imageArray = (byte[])dt.Rows[0]["uImage"];
+                    byte[] imageByteArray = imageArray;
+                    uPicBox.Image = Image.FromStream(new MemoryStream(imageByteArray));
+
+                }
+               /* Byte[] imageArray = (byte[])dt.Rows[0]["uImage"];
+                byte[] imageByteArray = imageArray;
+                uPicBox.Image = Image.FromStream(new MemoryStream(imageByteArray));*/
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using epark.View;
+using Guna.UI2.WinForms;
 using System;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace epark
         public mainForm()
         {
             InitializeComponent();
+            guna2MessageDialog1.Parent = this;
         }
 
 
@@ -21,11 +23,15 @@ namespace epark
         {
             _frmMainObj = this;
             btnMax.PerformClick();
+            lbUser.Text = MainClass.USER;
+            guna2CirclePictureBox1.Image = MainClass.IMG;
+            btnHome.PerformClick();
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void btnMax_Click(object sender, EventArgs e)
@@ -49,6 +55,7 @@ namespace epark
         }
         public void addControls(Form f)
         {
+            this.centerPanel.Controls.Clear();
             f.Dock = DockStyle.Fill;
             f.TopLevel = false;
             centerPanel.Controls.Add(f);
@@ -58,6 +65,62 @@ namespace epark
         private void btnUsers_Click(object sender, EventArgs e)
         {
             addControls(new frmUserView());
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            addControls(new frmCategoryView());
+        }
+
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            addControls(new frmSupplierView());
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            addControls(new frmCustomerView());
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            addControls(new frmProductView());
+        }
+
+        private void btnPurchase_Click(object sender, EventArgs e)
+        {
+            addControls(new frmPurchase());
+        }
+
+        private void btnSale_Click(object sender, EventArgs e)
+        {
+            addControls(new frmSalesView());
+        }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+            guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+
+            if (guna2MessageDialog1.Show("are you really want to exit Application ?") == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            addControls(new frmDashboard());
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            addControls(new frmReports());
         }
     }
 }

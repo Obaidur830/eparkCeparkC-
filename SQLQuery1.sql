@@ -1,9 +1,6 @@
-﻿create table users
-(
-userID int primary key identity,
-uUserName varchar(50),
-uPass varchar(50),
-uPhone varchar(50),
-uImage image
+﻿Select proID, pName,
+                        (Select SUM(qty) from tblDetails d inner join tblMain m on m.MainID=d.dMainID where m.mType ='PUR' and d.productID=proID)
+                       - (Select SUM(qty) from tblDetails d inner join tblMain m on m.MainID=d.dMainID where m.mType ='SAL' and d.productID=proID)
+                        from Product;
 
-);
+
