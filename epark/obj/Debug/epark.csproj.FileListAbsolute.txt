@@ -50,3 +50,4 @@ C:\Users\User\source\repos\epark\epark\obj\Debug\epark.csproj.CoreCompileInputs.
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.csproj.CopyComplete
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.exe
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.pdb
+C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.ticketView.resources

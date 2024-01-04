@@ -1,4 +1,6 @@
-﻿using System;
+﻿using epark.View;
+using Guna.UI2.WinForms;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -301,6 +303,166 @@ namespace epark.Model
                     GrandTotal();
                 }
 
+            }
+        }
+
+        private void guna2PictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(picTicketBox, "print ticket");
+        }
+        ticketView ticketView = new ticketView();
+        // Guna2DataGridView guna2DataGridView2 = new Guna2DataGridView();
+        private void picTicketBox_Click(object sender, EventArgs e)
+        {
+          // ticketView.guna2DataGridView2.Rows.Clear();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Product", typeof(string));
+            dt.Columns.Add("Qty", typeof(int));
+            dt.Columns.Add("Price", typeof(double));
+            dt.Columns.Add("Amount", typeof(double));
+            foreach (DataGridViewRow item in guna2DataGridView1.Rows)
+            {
+                dt.Rows.Add(item.Cells["dgvProduct"].Value.ToString(), int.Parse(item.Cells["dgvqty"].Value.ToString()), int.Parse(item.Cells["dgvPrice"].Value.ToString()), int.Parse(item.Cells["dgvAmount"].Value.ToString()));
+                
+            }
+            ticketView.guna2DataGridView2.DataSource= dt;
+            //Console.WriteLine(guna2DataGridView2.Rows.Count);
+            //ticketView.ShowDialog();*/
+           PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+            printPreviewDialog.Document = printDocument1;
+            printPreviewDialog.ShowDialog();
+        }
+
+        Rectangle MyBox_Rectangle;
+        Rectangle MyTest_Rectangle;
+        SizeF Size_MyColums;
+        int niopp = 0;
+        int numm = 0;
+        private int[] MyCoulums_Width = { 200, 200, 200, 200 };
+        private StringAlignment[] Vertical_Ali = { StringAlignment.Center, StringAlignment.Center, StringAlignment.Center, StringAlignment.Center };
+        private StringAlignment[] Horezontal_Ali = { StringAlignment.Center, StringAlignment.Center, StringAlignment.Center, StringAlignment.Far };
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            {
+                Graphics MyGraphics = e.Graphics;
+                Font MyFont0 = new Font("Arial", 24, FontStyle.Bold);
+                String MyLine = "____________________________________";
+                int Horezontal_X = 0;
+                int vertical_Y = 0;
+                int My_newline = 0;
+                My_newline += 0;
+                My_newline = My_newline + 20;
+                var g = e.Graphics;
+                var srcRect = new Rectangle(0, 0, picTicketBox.Width, picTicketBox.Height);
+                var desRect = new Rectangle(0, 0, 850, 1100);
+                using (var MYPic = new Bitmap(srcRect.Width, srcRect.Height))
+                {
+                    picTicketBox.DrawToBitmap(MYPic, srcRect);
+                    g.DrawImage(MYPic, desRect, srcRect, GraphicsUnit.Pixel);
+
+                }
+                My_newline = My_newline + 60;
+                StringFormat MyStringFormat2 = new StringFormat();
+                StringFormat MyStringFormat3 = new StringFormat();
+                SolidBrush My_Color = new SolidBrush(Color.Black);
+                MyStringFormat3 = new StringFormat(StringFormatFlags.DirectionVertical);
+              //  MyStringFormat2 = new StringFormat(StringFormatFlags.DirectionHori);
+                /*MyGraphics.DrawString(label1.Text.ToUpper(), new Font("Arial", 23, FontStyle.Bold), My_Color, 15, vertical_Y + 12);
+                My_newline = My_newline + 60;
+                MyGraphics.DrawString(cashier + textBox1.Text, MyFont0, My_Color, 205, vertical_Y + My_newline, MyStringFormat2);
+                My_newline = My_newline + 25;
+                MyGraphics.DrawString(bill + textBox2.Text, MyFont0, My_Color, 85, vertical_Y + My_newline);
+                My_newline = My_newline + 25;
+                g.DrawString(datee + DateTime.Now.ToShortDateString(), MyFont0, My_Color, 75, vertical_Y + My_newline);
+                My_newline = My_newline + 10;*/
+               // My_newline = My_newline + 10;
+               // MyGraphics.DrawString(MyLine, new Font("Arial", 10, FontStyle.Bold), My_Color, 0, vertical_Y + My_newline);
+                My_newline = My_newline + 25;
+                MyGraphics.DrawString("Product", new Font("Arial", 24, FontStyle.Bold), My_Color, Horezontal_X + 2, vertical_Y + My_newline, MyStringFormat2);
+                MyGraphics.DrawString("Qty", new Font("Arial", 24, FontStyle.Bold), My_Color, Horezontal_X + 220, vertical_Y + My_newline);
+                MyGraphics.DrawString("Price", new Font("Arial", 24, FontStyle.Bold), My_Color, Horezontal_X + 420, vertical_Y + My_newline);
+                MyGraphics.DrawString("Amount", new Font("Arial", 24, FontStyle.Bold), My_Color, 620, vertical_Y + My_newline);
+                My_newline = My_newline + 60;
+                 
+
+                //----------------------------------------------myDataGrid------------------------------------
+                StringFormat MyStringFormat = new StringFormat();
+                Font MyFont1 = new Font("Arial", 24);
+                const int Side_margin = 4;
+                int y = My_newline;
+                for (int j = numm; j < ticketView.guna2DataGridView2.Rows.Count; j++)
+                {
+                    int MyMax_height = 0;
+                    niopp++;
+
+                    if (niopp <= 10)
+                    {
+                        numm++;
+                        if (numm < ticketView.guna2DataGridView2.Rows.Count)
+                        {
+
+                            for (int i = 0; i < ticketView.guna2DataGridView2.Columns.Count; i++)
+                            {
+                                Size_MyColums = e.Graphics.MeasureString(Convert.ToString(ticketView.guna2DataGridView2.Rows[j].Cells[i].Value), MyFont1, MyCoulums_Width[i] - 1 * Side_margin);
+                                int MyNew_height = (int)Math.Ceiling(Size_MyColums.Height);
+                                if (MyMax_height < MyNew_height)
+                                {
+                                    MyMax_height = MyNew_height;
+                                }
+                            }
+                            MyMax_height += 2 * Side_margin;
+
+                            int x = Side_margin;
+                            for (int i = 0; i < ticketView.guna2DataGridView2.Columns.Count; i++)
+                            {
+                                MyBox_Rectangle = new Rectangle(x, y, MyCoulums_Width[i], MyMax_height);
+                                MyTest_Rectangle = MyBox_Rectangle;
+                                MyTest_Rectangle.Inflate(-Side_margin, -Side_margin);
+                                MyStringFormat.Alignment = Horezontal_Ali[i];
+                                MyStringFormat.LineAlignment = Vertical_Ali[i];
+                                e.Graphics.DrawString(Convert.ToString(ticketView.guna2DataGridView2.Rows[j].Cells[i].Value), MyFont1, My_Color, MyTest_Rectangle, MyStringFormat);
+                               // box akare thakbe gridview er moto
+                                // e.Graphics.DrawRectangle(Pens.Black, MyBox_Rectangle);
+                                x += MyCoulums_Width[i];
+                            }
+                        }
+                        else
+                        {
+                            e.HasMorePages = false;
+                        }
+                    }
+                    else
+                    {
+                        niopp = 0;
+                        e.HasMorePages = true;
+                        return;
+                    }
+                    y += MyMax_height;
+                }
+                //----------------------------------------------myDataGrid------------------------------------
+                /*My_newline = y + 10;
+                textBox5.Text = String.Format("{0:n0}", double.Parse(textBox5.Text));
+                textBox6.Text = String.Format("{0:n0}", double.Parse(textBox6.Text));
+                MyGraphics.DrawString(textBox5.Text, MyFont0, My_Color, 0, vertical_Y + My_newline);
+                MyGraphics.DrawString("كۆی گشتی:", MyFont0, My_Color, 280, vertical_Y + My_newline, MyStringFormat2);
+                My_newline = My_newline + 18;
+                MyGraphics.DrawString("***************************************************", new Font("Arial", 10), My_Color, 0, vertical_Y + My_newline);
+                My_newline = My_newline + 20;
+                MyGraphics.DrawString(textBox6.Text, MyFont0, My_Color, 2, vertical_Y + My_newline);
+                MyGraphics.DrawString("داشكاندن:", MyFont0, My_Color, 280, vertical_Y + My_newline, MyStringFormat2);
+                My_newline = My_newline + 18;
+                MyGraphics.DrawString("***************************************************", new Font("Arial", 10), My_Color, 0, vertical_Y + My_newline);
+                My_newline = My_newline + 30;
+                MyGraphics.DrawString("*" + textBox2.Text + "*", new Font("C39P24DlTt", 25), My_Color, 35, vertical_Y + My_newline);
+                My_newline = My_newline + 35;
+                MyGraphics.DrawString(textBox2.Text, new Font("Arial", 8), My_Color, 115, vertical_Y + My_newline);
+                My_newline = My_newline + 40;
+                MyGraphics.DrawString(textBox4.Text, MyFont0, My_Color, 40, vertical_Y + My_newline);
+                My_newline = My_newline + 20;
+                MyGraphics.DrawString(Auther, MyFont0, My_Color, 10, vertical_Y + My_newline);*/
+
+                niopp = 0;
+                numm = 0;
             }
         }
     }
