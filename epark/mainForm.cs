@@ -25,7 +25,8 @@ namespace epark
             btnMax.PerformClick();
             lbUser.Text = MainClass.USER;
             guna2CirclePictureBox1.Image = MainClass.IMG;
-            btnHome.PerformClick();
+            //btnHome.PerformClick();
+            btnSale.PerformClick();
 
         }
 

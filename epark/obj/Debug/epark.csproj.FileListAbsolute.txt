@@ -21,6 +21,7 @@ C:\Users\User\source\repos\epark\epark\bin\Debug\CrystalDecisions.ReportAppServe
 C:\Users\User\source\repos\epark\epark\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\User\source\repos\epark\epark\bin\Debug\stdole.dll
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\epark\epark\obj\Debug\epark.AltBox.Frm_Alert.resources
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.frmPrint.resources
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.mainForm.resources
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.Model.formUserAdd.resources
@@ -45,9 +46,11 @@ C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.frmReports.resources
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.frmSalesView.resources
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.frmSupplierView.resources
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.frmUserView.resources
+C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.loginView.resources
+C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.registrationView.resources
+C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.ticketView.resources
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.csproj.GenerateResource.cache
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.csproj.CopyComplete
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.exe
 C:\Users\User\source\repos\epark\epark\obj\Debug\epark.pdb
-C:\Users\User\source\repos\epark\epark\obj\Debug\epark.View.ticketView.resources

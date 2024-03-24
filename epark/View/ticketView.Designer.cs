@@ -35,24 +35,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ticketView));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pTicketBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pTicketBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.guna2DataGridView2);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox2);
-            this.guna2Panel1.Location = new System.Drawing.Point(132, 88);
+            this.guna2Panel1.Controls.Add(this.pTicketBox);
+            this.guna2Panel1.Location = new System.Drawing.Point(56, 49);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(355, 396);
+            this.guna2Panel1.Size = new System.Drawing.Size(743, 829);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2DataGridView2
@@ -78,11 +77,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView2.Location = new System.Drawing.Point(3, 28);
+            this.guna2DataGridView2.Location = new System.Drawing.Point(634, 218);
             this.guna2DataGridView2.Name = "guna2DataGridView2";
             this.guna2DataGridView2.RowHeadersVisible = false;
             this.guna2DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.guna2DataGridView2.Size = new System.Drawing.Size(349, 393);
+            this.guna2DataGridView2.Size = new System.Drawing.Size(349, 181);
             this.guna2DataGridView2.TabIndex = 1;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -106,15 +105,16 @@
             this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // guna2PictureBox2
+            // pTicketBox
             // 
-            this.guna2PictureBox2.Image = global::epark.Properties.Resources.tickets;
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(3, 0);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(349, 396);
-            this.guna2PictureBox2.TabIndex = 0;
-            this.guna2PictureBox2.TabStop = false;
+            this.pTicketBox.Image = global::epark.Properties.Resources.ticketdesign1;
+            this.pTicketBox.ImageRotate = 0F;
+            this.pTicketBox.Location = new System.Drawing.Point(161, 3);
+            this.pTicketBox.Name = "pTicketBox";
+            this.pTicketBox.Size = new System.Drawing.Size(345, 950);
+            this.pTicketBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pTicketBox.TabIndex = 0;
+            this.pTicketBox.TabStop = false;
             // 
             // printPreviewDialog1
             // 
@@ -131,7 +131,7 @@
             this.guna2PictureBox1.FillColor = System.Drawing.Color.RosyBrown;
             this.guna2PictureBox1.Image = global::epark.Properties.Resources.printer;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(528, 76);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(848, -20);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(110, 83);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -142,14 +142,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 496);
+            this.ClientSize = new System.Drawing.Size(913, 788);
+            this.Controls.Add(this.guna2DataGridView2);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ticketView";
             this.Text = "ticketView";
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pTicketBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -162,7 +163,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         public Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
+        public Guna.UI2.WinForms.Guna2PictureBox pTicketBox;
     }
 }

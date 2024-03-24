@@ -6,7 +6,9 @@ using System.Drawing;
 using System.IO;
 using System.Messaging;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace epark
 {
@@ -216,5 +218,42 @@ namespace epark
             return isValid;
         }
 
+        public static bool isValidPhoneNumber(string phoneNumber)
+        {
+            Regex regex = new Regex("^(?:\\+88|88)?(01[3-9]\\d{8})$");
+            Match match=regex.Match(phoneNumber);
+            if (!match.Success)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool isValidUsername(string userName)
+        {
+            bool isValid = true;
+            string qry = @"Select * from users where uUserName= '" + userName + "' ";
+            SqlCommand cmd = new SqlCommand(qry, sqlCon);
+            DataTable dt = new DataTable();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+            dataAdapter.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                isValid = false;
+                
+            }
+            return isValid;
+        }
+
+        public static bool isValidPassword(string password)
+        {
+            bool isValid = true;
+            if(password.Length< 5)
+            {
+                isValid = false;
+            }
+            return isValid;
+        }
     }
 }

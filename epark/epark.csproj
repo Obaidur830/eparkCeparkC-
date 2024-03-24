@@ -77,6 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltBox\Frm_Alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltBox\Frm_Alert.Designer.cs">
+      <DependentUpon>Frm_Alert.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,11 @@
     <Compile Include="Model\ucProduct.Designer.cs">
       <DependentUpon>ucProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\CrystalReport5.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,6 +186,12 @@
     </Compile>
     <Compile Include="SampleView.Designer.cs">
       <DependentUpon>SampleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\registrationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\registrationView.Designer.cs">
+      <DependentUpon>registrationView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmCategoryView.cs">
       <SubType>Form</SubType>
@@ -230,12 +247,21 @@
     <Compile Include="View\frmUserView.Designer.cs">
       <DependentUpon>frmUserView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\loginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\loginView.Designer.cs">
+      <DependentUpon>loginView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ticketView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\ticketView.Designer.cs">
       <DependentUpon>ticketView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AltBox\Frm_Alert.resx">
+      <DependentUpon>Frm_Alert.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrint.resx">
       <DependentUpon>frmPrint.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,14 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SampleAdd.resx">
       <DependentUpon>SampleAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +343,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmUserView.resx">
       <DependentUpon>frmUserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\loginView.resx">
+      <DependentUpon>loginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\registrationView.resx">
+      <DependentUpon>registrationView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ticketView.resx">
       <DependentUpon>ticketView.cs</DependentUpon>
@@ -422,6 +449,165 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tickets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ticketdesign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ticketdesign1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-removebg-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cubes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cubes2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-removebg-preview1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\park logo login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\park logo login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login user male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login user male1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login user malee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login user malee1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngegg %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blind1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\park register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\park2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -25,7 +25,9 @@ namespace epark.View
         }
         public override void btnAdd_Click(object sender, EventArgs e)
         {
-            MainClass.BlurBackground(new frmSaleAdd());
+            frmSaleAdd frm = new frmSaleAdd();
+            frm.txtDate.Value = DateTime.Now;
+            MainClass.BlurBackground(frm);
             loadData();
         }
 
@@ -60,7 +62,7 @@ namespace epark.View
                 frmSaleAdd frm = new frmSaleAdd();
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.cusID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvCusID"].Value);
-
+                frm.txtDate.Value = Convert.ToDateTime(guna2DataGridView1.CurrentRow.Cells["dgvdate"].Value);
                 MainClass.BlurBackground(frm);
                 loadData();
             }

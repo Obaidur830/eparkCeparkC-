@@ -1,4 +1,5 @@
-﻿using System;
+﻿using epark.View;
+using System;
 using System.Windows.Forms;
 
 namespace epark
@@ -13,7 +14,9 @@ namespace epark
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            //Application.Run(new frmLogin());
+            //Application.Run(new loginView());
+            Application.Run(new registrationView());
         }
     }
 }
